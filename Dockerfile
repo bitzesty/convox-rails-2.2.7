@@ -37,13 +37,9 @@ RUN curl -s https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh 
   && nvm alias default ${NODE_VERSION} \
   && nvm use default
 
-ARG PHANTOM_JS_VERSION=2.1.1
-RUN git clone https://github.com/ariya/phantomjs.git /tmp/phantomjs \
-  && cd /tmp/phantomjs \
-  && git checkout ${PHANTOM_JS_VERSION} \
-  && ./build.sh --confirm \ 
-  && mv bin/phantomjs /usr/local/bin \
-  && rm -rf /tmp/phantomjs
+RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
+  && tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /usr/local/share/ \
+  && ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
 
 
 WORKDIR /app
