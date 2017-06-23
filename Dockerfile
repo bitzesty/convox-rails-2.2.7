@@ -3,6 +3,7 @@ FROM ubuntu:16.04
 RUN apt-get update && apt-get -y install \
   build-essential \
   git \
+  wget \
   libcurl4-openssl-dev \
   liblzma-dev \
   libmysqld-dev \
