@@ -37,7 +37,7 @@ RUN curl -s https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh 
   && nvm alias default ${NODE_VERSION} \
   && nvm use default
 
-ARG PHANTOM_JS_VERSION 2.1.1
+ARG PHANTOM_JS_VERSION=2.1.1
 RUN git clone https://github.com/ariya/phantomjs.git /tmp/phantomjs \
   && cd /tmp/phantomjs \
   && git checkout ${PHANTOM_JS_VERSION} \
