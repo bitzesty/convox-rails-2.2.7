@@ -13,7 +13,11 @@ RUN apt-get update && apt-get -y install \
   ruby-build \
   ruby-dev \
   tzdata \
-  zlib1g-dev
+  zlib1g-dev \
+  libfreetype6 \ 
+  libfreetype6-dev \
+  libfontconfig1 \
+  libfontconfig1-dev
 
 ARG RUBY_VERSION=2.2.7
 ENV PATH /root/.rbenv/shims:${PATH}
@@ -32,6 +36,15 @@ RUN curl -s https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh 
   && nvm install ${NODE_VERSION} \
   && nvm alias default ${NODE_VERSION} \
   && nvm use default
+
+ARG PHANTOM_JS_VERSION 2.1.1
+RUN git clone https://github.com/ariya/phantomjs.git /tmp/phantomjs \
+  && cd /tmp/phantomjs \
+  && git checkout ${PHANTOM_JS_VERSION} \
+  && ./build.sh --confirm \ 
+  && mv bin/phantomjs /usr/local/bin \
+  && rm -rf /tmp/phantomjs
+
 
 WORKDIR /app
 
