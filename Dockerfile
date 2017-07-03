@@ -18,7 +18,13 @@ RUN apt-get update && apt-get -y install \
   libfreetype6 \ 
   libfreetype6-dev \
   libfontconfig1 \
-  libfontconfig1-dev
+  libfontconfig1-dev \
+  openssl \
+  libssl-dev \
+  libxrender-dev \
+  libxrender1 \
+  libxtst6 \
+  libxi6
 
 ARG RUBY_VERSION=2.2.7
 ENV PATH /root/.rbenv/shims:${PATH}
