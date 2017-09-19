@@ -24,7 +24,9 @@ RUN apt-get update && apt-get -y install \
   libxrender-dev \
   libxrender1 \
   libxtst6 \
-  libxi6
+  libxi6 \  
+  imagemagick \ 
+  libmagickwand-dev
 
 ARG RUBY_VERSION=2.2.7
 ENV PATH /root/.rbenv/shims:${PATH}
