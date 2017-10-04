@@ -28,6 +28,9 @@ RUN apt-get update && apt-get -y install \
   imagemagick \ 
   libmagickwand-dev
 
+ENV SSL_CERT_DIR=/etc/ssl/certs
+ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+
 ARG RUBY_VERSION=2.2.7
 ENV PATH /root/.rbenv/shims:${PATH}
 RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build \
