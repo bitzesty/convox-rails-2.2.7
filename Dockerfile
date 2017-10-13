@@ -28,6 +28,9 @@ RUN apt-get update && apt-get -y install \
   imagemagick \ 
   libmagickwand-dev
 
+RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+RUN apt-get update && apt-get install -y ttf-mscorefonts-installer apt-transport-https
+
 ENV SSL_CERT_DIR=/etc/ssl/certs
 ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
