@@ -40,7 +40,7 @@ RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-buil
   && rbenv install ${RUBY_VERSION} \
   && rbenv global ${RUBY_VERSION}
 
-ARG BUNDLER_VERSION=1.14.6
+ARG BUNDLER_VERSION=1.16.0
 RUN gem install bundler -v ${BUNDLER_VERSION} && rbenv rehash
 
 ARG NODE_VERSION=7.7.1
